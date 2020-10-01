@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:    
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # This is where VS Code should expect to find your project's source code and the value of "workspaceFolder" in .devcontainer/devcontainer.json
+      - ..:/workspace:cached
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "while sleep 1000; do :; done"  
+    network_mode: service:db
+  db:
+    image: "postgres"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pwd1234
+      POSTGRES_DB: doodle
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_db:/var/lib/postgresql/data
+
+volumes:
+  pg_db:
