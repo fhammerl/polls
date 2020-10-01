@@ -16,7 +16,9 @@
 
 	<properties>
 		<java.version>14</java.version>
+		<start-class>com.fhammerl.polls.PollsApplication</start-class>
 	</properties>
+	
 
 	<dependencies>
 		<dependency>
