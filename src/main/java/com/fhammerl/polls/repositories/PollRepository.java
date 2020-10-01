@@ -11,4 +11,7 @@ import com.fhammerl.polls.models.Poll;
 public interface PollRepository extends JpaRepository<Poll, Integer> {
     @Query("SELECT p FROM poll p where p.createdByUserId = :id") 
     List<Poll> findByCreatorId(@Param("id") Integer userId);
+
+    @Query("SELECT p FROM poll p where p.title = :title") 
+    List<Poll> findByTitle(@Param("title") String title);
 }

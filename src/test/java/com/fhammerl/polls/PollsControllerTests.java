@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 
 import com.fhammerl.polls.models.Poll;
+import com.fhammerl.polls.models.SearchQuery;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,13 @@ class PollsControllerTests {
 	void listCreatedByUserWorks() throws Exception {
 		List<Poll> polls = pollsController.createdBy(4);
 		assertEquals(polls.toArray().length, 2, "Unexpected number of polls found for user 4!");
+	}
+
+	@Test
+	void getByTitle() throws Exception {
+		SearchQuery query = new SearchQuery();
+		query.setTitle("谁是最坏蛋奇迹超级英雄?");
+		List<Poll> polls = pollsController.search(query);
+		assertEquals(polls.toArray().length, 1, "Unexpected number of polls found for title '谁是最坏蛋奇迹超级英雄?'!");
 	}
 }
