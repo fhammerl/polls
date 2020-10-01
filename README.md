@@ -6,7 +6,10 @@ I started by registering an account on Doodle and playing around a bit with my d
 After analyzing polls.json, I came up with a rough relational DB schema and some ideas about the tech stack.
 ## Technology choices
 ### Visual Studio Code + Remote Development / Dev Containers
-With VS Code Remote Development, you can use a Docker container as a full-featured development environment. That includes building, running, debugging and testing your application in complete isolation. I am on a new PC and I don't need a JDK installed for development.
+With VS Code Remote Development, you can use a Docker container as a full-featured development environment. VS Code is going to work **as if it was running locally on the Linux container** I chose to develop on. Other tools offer similar solutions of course (mounting the workspace, hot-reload), but I find the extreme approach of hooking the entire "IDE" into a container quite inspiring.
+
+Debugging inside the container:
+![](images/2020-10-01-16-15-02.png)
 
 Note: While VS Code is great for smaller Java projects, it's not mature enough for complex, multi-project Java solutions.
 
