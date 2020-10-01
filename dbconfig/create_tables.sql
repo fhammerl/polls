@@ -7,6 +7,7 @@ CREATE TABLE poll
     preferences_type text NOT NULL,
     state text NOT NULL,
     title text NOT NULL,
+    created_by_user_id integer, -- dummy value, would obviously be a foreign key
     PRIMARY KEY (id)
 );
 
