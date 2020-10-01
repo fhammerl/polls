@@ -8,11 +8,11 @@ docker-compose up
 ```
 in the polls folder, wait for Docker and Maven to do their thing, then fire away.
 ### 1. List all polls created by a user
-`http://localhost:8080/api/v1/polls/createdBy?userId=4`
+GET: `http://localhost:8080/api/v1/polls/createdBy?userId=4`
 
 _Challenge: make it return a 500 (one answer in the controller)_
 ### 2. Search polls by its title
-`http://localhost:8080/api/v1/polls/search`
+POST: `http://localhost:8080/api/v1/polls/search`
 
 RequestBody:
 ```
@@ -21,9 +21,12 @@ RequestBody:
 }
 ```
 ### 3. List all polls created after a certain date
-`http://localhost:8080/api/v1/polls/listFrom?fromDate=2019-06-01`   - all 3 polls
-`http://localhost:8080/api/v1/polls/listFrom?fromDate=2020-05-15`   - only 2
-`http://localhost:8080/api/v1/polls/listFrom?fromDate=2020-06-15`   - none
+
+GET: `http://localhost:8080/api/v1/polls/listFrom?fromDate=2019-06-01`   - all 3 polls
+
+GET: `http://localhost:8080/api/v1/polls/listFrom?fromDate=2020-05-15`   - only 2
+
+GET: `http://localhost:8080/api/v1/polls/listFrom?fromDate=2020-06-15`   - none
 ***
 ## Getting started
 
@@ -48,7 +51,17 @@ As a timestamp, the date 2020-01-01 is 2020-01-01 00:00, so an initiated timesta
 
 ## Technology choices
 ### Visual Studio Code + Remote Development / Dev Containers
-With VS Code Remote Development, you can use a Docker container as a full-featured development environment. VS Code is going to work **as if it was running locally on the Linux container** I chose to develop on. Other tools offer similar solutions of course (mounting the workspace, hot-reload), but I find the extreme approach of hooking the entire "IDE" into a container quite inspiring.
+With VS Code Remote Development, you can use a Docker container as a full-featured development environment. VS Code is going to work **as if it was running locally on the Linux container** I chose to develop on. Other tools offer similar solutions of course (mounting the workspace, hot-reload), but I find the extreme approach of hooking the entire "IDE" into a container quite inspiring. 
+
+
+To open the dev container:
+- Open the folder in VS Code
+- Reopen in container (popup in bottom right of the window)
+- Find a Java file, hit F5
+- Say yes to Java standard mode (popup in bottom right of the window)
+- After a minute and the Java mode switch, you're in - now you're developing on a 'remote' machine. Move it to the cloud and you've got GitHub CodeSpaces.
+
+More about dev containers: https://stuartleeks.com/posts/vscode-devcontainers/
 
 Debugging inside the container:
 ![](images/2020-10-01-16-15-02.png)
