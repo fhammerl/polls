@@ -18,3 +18,11 @@ Nothing really comes close.
 
 ### PostgreSQL
 Easy integration with Java, UUID as primary key natively, can index JSON objects.
+
+## User stories
+### 1. List all polls created by a user
+Create an endpoint that takes an integer `userId` param and returns with an empty list or a list of polls
+### 2. Search polls by its title
+Create an endpoint that takes a string `title` param and returns with an empty list or a list of polls
+### 3. List all polls created after a certain date
+Create an endpoint that takes an ISO date `date` in param and returns with an empty list or a list of polls
