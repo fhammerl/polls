@@ -1,8 +1,10 @@
 package com.fhammerl.polls.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 import com.fhammerl.polls.repositories.PollRepository;
@@ -36,5 +38,12 @@ public class PollsController {
     @RequestMapping("search") // TODO: review ambiguous naming
     public List<Poll> search(@RequestBody SearchQuery query) {
         return pollRepository.findByTitle(query.getTitle());
+    }    
+
+    // Test: http://localhost:8080/api/v1/polls/list?fromDate=2020-06-01
+    @GetMapping
+    @RequestMapping("listFrom")
+    public List<Poll> listFrom(@DateTimeFormat(pattern="yyyy-MM-dd") Date fromDate) {
+        return pollRepository.listAfterDate(fromDate);
     }
 }

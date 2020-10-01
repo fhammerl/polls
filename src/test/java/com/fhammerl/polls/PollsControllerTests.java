@@ -2,6 +2,7 @@ package com.fhammerl.polls;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Date;
 import java.util.List;
 
 import com.fhammerl.polls.models.Poll;
@@ -26,22 +27,28 @@ class PollsControllerTests {
 	private PollsController pollsController;
 
 	@Test
-	void listAllWorks() throws Exception {
+	void canListAll() throws Exception {
 		List<Poll> polls = pollsController.list();
 		assertEquals(polls.toArray().length, 3, "Unexpected number of polls found!");
 	}
 
 	@Test
-	void listCreatedByUserWorks() throws Exception {
+	void canListCreatedByUser() throws Exception {
 		List<Poll> polls = pollsController.createdBy(4);
 		assertEquals(polls.toArray().length, 2, "Unexpected number of polls found for user 4!");
 	}
 
 	@Test
-	void getByTitle() throws Exception {
+	void canGetByTitle() throws Exception {
 		SearchQuery query = new SearchQuery();
 		query.setTitle("谁是最坏蛋奇迹超级英雄?");
 		List<Poll> polls = pollsController.search(query);
 		assertEquals(polls.toArray().length, 1, "Unexpected number of polls found for title '谁是最坏蛋奇迹超级英雄?'!");
+	}
+
+	@Test
+	void canListFromDate() throws Exception {
+		List<Poll> polls = pollsController.listFrom(new Date(1590969600)); // 2020-06-01T00:00:00+00:00
+		assertEquals(polls.toArray().length, 2, "Unexpected number of polls found for user 4!");
 	}
 }
