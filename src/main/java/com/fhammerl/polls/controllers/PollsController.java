@@ -15,6 +15,7 @@ public class PollsController {
     private PollRepository pollRepository;
 
     @GetMapping
+    @RequestMapping("list")
     public List<Poll> list() {
         return pollRepository.findAll();
     }
