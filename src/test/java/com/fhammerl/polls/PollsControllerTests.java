@@ -13,8 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.fhammerl.polls.controllers.PollsController;
 /*
-	These tests are all dpeendent on the DB being set up properly
-	They are at best smoke test
+	All the setup for these tests is in insert_rows.sql
+	They are at best smoke tests
 */
 
 @SpringBootTest
