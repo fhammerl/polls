@@ -14,9 +14,18 @@ public class PollsController {
     @Autowired
     private PollRepository pollRepository;
 
+    // Test: http://localhost:8080/api/v1/polls/list
     @GetMapping
     @RequestMapping("list")
     public List<Poll> list() {
         return pollRepository.findAll();
+    }
+
+
+    // Test: http://localhost:8080/api/v1/polls/createdBy?userId=4
+    @GetMapping
+    @RequestMapping("createdBy")
+    public List<Poll> createdBy(int userId) {
+        return pollRepository.findByCreatorId(userId);
     }
 }

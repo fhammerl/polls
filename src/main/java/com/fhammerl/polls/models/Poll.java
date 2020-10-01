@@ -22,6 +22,8 @@ public class Poll {
     private String preferencesType;
     private String state;
     private String title;
+    @Column(name = "created_by_user_id")
+    private int createdByUserId;
 
     @OneToMany(mappedBy = "poll", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Participant> participants;
@@ -88,6 +90,13 @@ public class Poll {
 
     public void setParticipants(List<Participant> participant) {
         this.participants = participant;
+    }
+    public int getCreatedByUserId() {
+        return this.createdByUserId;
+    }
+
+    public void setCreatedByUserId(int createdByUserId) {
+        this.createdByUserId = createdByUserId;
     }
 
 }

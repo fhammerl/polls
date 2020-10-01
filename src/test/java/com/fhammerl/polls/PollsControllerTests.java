@@ -27,6 +27,12 @@ class PollsControllerTests {
 	@Test
 	void listAllWorks() throws Exception {
 		List<Poll> polls = pollsController.list();
-		assertEquals(polls.toArray().length, 2, "Unexpected number of polls found!");
+		assertEquals(polls.toArray().length, 3, "Unexpected number of polls found!");
+	}
+
+	@Test
+	void listCreatedByUserWorks() throws Exception {
+		List<Poll> polls = pollsController.createdBy(4);
+		assertEquals(polls.toArray().length, 2, "Unexpected number of polls found for user 4!");
 	}
 }
