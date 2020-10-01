@@ -21,8 +21,9 @@ Easy integration with Java, UUID as primary key natively, can index JSON objects
 
 ## User stories
 ### 1. List all polls created by a user
-Create an endpoint that takes an integer `userId` param and returns with an empty list or a list of polls
+Create an endpoint that takes an integer `userId` param and returns with an empty list or a list of polls that the user created
 ### 2. Search polls by its title
-Create an endpoint that takes a string `title` param and returns with an empty list or a list of polls
+Create an endpoint that takes a string `title` param and returns with an empty list or a list of polls with the exact title
 ### 3. List all polls created after a certain date
-Create an endpoint that takes an ISO date `date` in param and returns with an empty list or a list of polls
+Create an endpoint that takes an ISO date `date` in param and returns with an empty list or a list of polls with `initiated` post the date param. 
+As a timestamp, the date 2020-01-01 is 2020-01-01 00:00, so an initiated timestamp of 2020-01-01 01:00 is 'after' 2020-01-01
