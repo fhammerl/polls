@@ -1,12 +1,15 @@
 # Backend Engineer hiring challenge - Ferenc Hammerl
 
 ## How do I use it?
-If you can't wait to try this api, you're at the right place. 
+If you can't wait to try this api, you're at the right place.
+Make sure docker has File Sharing enabled for the folder.
+
 Run:
 ```
 docker-compose up
 ```
 in the polls folder, wait for Docker and Maven to do their thing, then fire away.
+
 ### 1. List all polls created by a user
 GET: `http://localhost:8080/api/v1/polls/createdBy?userId=4`
 
