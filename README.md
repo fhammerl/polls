@@ -1,4 +1,4 @@
-# Backend Engineer hiring challenge - Ferenc Hammerl
+# Polls challenge
 
 ## How do I use it?
 If you can't wait to try this api, you're at the right place.
